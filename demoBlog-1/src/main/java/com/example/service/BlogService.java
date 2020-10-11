@@ -6,8 +6,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-
-import com.example.BlogDAO.BlogDAOImpl;
+import com.example.dao.BlogDAOImpl;
 import com.example.model.BlogModel;
 
 public class BlogService {

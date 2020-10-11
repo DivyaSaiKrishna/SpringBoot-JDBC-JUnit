@@ -1,4 +1,4 @@
-package com.example.BlogDAO;
+package com.example.dao;
 
 import java.util.List;
 
