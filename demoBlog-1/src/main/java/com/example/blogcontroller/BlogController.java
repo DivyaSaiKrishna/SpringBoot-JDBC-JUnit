@@ -1,7 +1,5 @@
 package com.example.blogcontroller;
 
-
-
 import java.util.List;
 
 import javax.websocket.server.PathParam;
@@ -15,10 +13,8 @@ import org.springframework.web.bind.annotation.RestController;
 import com.example.model.BlogModel;
 import com.example.service.BlogService;
 
-
-
 @RestController
-public class BlogAPiController {
+public class BlogController {
 	
 	@Autowired
 	JdbcTemplate jdbctemplate;
@@ -36,12 +32,6 @@ public class BlogAPiController {
 	public String test() {
 		return bs.test();
 	}
-	
-	@RequestMapping("/counttest")
-	public int counttest() {
-		return bs.count();
-	}
-	
 	
 	@RequestMapping("/add")
 	public String addblog(@PathParam(value="blogTitle")String blogTitle,
