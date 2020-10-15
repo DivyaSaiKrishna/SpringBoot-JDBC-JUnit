@@ -5,11 +5,12 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import com.example.dao.BlogDAOImpl;
 import com.example.model.BlogModel;
-
-public class BlogService {
+@Component
+public class BlogService { 
 	
 	BlogModel bm = new BlogModel();
 	

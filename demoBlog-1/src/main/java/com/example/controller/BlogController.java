@@ -20,7 +20,7 @@ public class BlogController {
 	JdbcTemplate jdbctemplate;
 	
 	@Autowired
-	BlogService bs;
+	BlogService blogservice;
 	
 	@RequestMapping("/count")
 	public int count() {
@@ -30,21 +30,21 @@ public class BlogController {
 	
 	@RequestMapping("/test")
 	public String test() {
-		return bs.test();
+		return blogservice.test();
 	}
 	
 	@RequestMapping("/add")
 	public String addblog(@PathParam(value="blogTitle")String blogTitle,
 			@PathParam(value = "blogContext")String blogContext,
 			@PathParam(value="blogAuthor")String blogAuthor) throws Exception {
-		return bs.addblog(blogTitle, blogContext, blogAuthor);
+		return blogservice.addblog(blogTitle, blogContext, blogAuthor);
 	}
 	
 	@RequestMapping("/getlist")
 	public String getlist() throws Exception {
 		String str = "";
-		List<BlogModel> blogmod = bs.getList();
-		for(BlogModel bm : blogmod) {
+		List<BlogModel> blogmodel = blogservice.getList();
+		for(BlogModel bm : blogmodel) {
 			str = str + bm.toString();
 		}
 		return str;
@@ -52,7 +52,7 @@ public class BlogController {
 	
 	@RequestMapping("/getbyid")
 	public String getbyid(@RequestParam String blogId) throws Exception {
-		return bs.getbyid(blogId);
+		return blogservice.getbyid(blogId);
 	}
 
 	@RequestMapping(value="/updatebyid")
@@ -61,12 +61,12 @@ public class BlogController {
 							@PathParam(value = "blogContext")String blogContext,
 							@PathParam(value="blogAuthor")String blogAuthor) throws Exception {
 		
-			return bs.updatebyid(blogId, blogTitle, blogContext, blogAuthor);
+			return blogservice.updatebyid(blogId, blogTitle, blogContext, blogAuthor);
 	}
 	
 	@RequestMapping("/delete")
 	public String deletebyId(@RequestParam String blogId) throws Exception {
-		return bs.deletebyid(blogId);
+		return blogservice.deletebyid(blogId);
 	}
 	
 	
